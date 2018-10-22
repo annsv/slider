@@ -62,3 +62,12 @@
   margin-right: 0.5em;
 }
 
+.slider__arrows-left{
+    width: 50px;
+    list-style: none;
+}
+.slider__arrows-right{
+    width: 50px;
+    list-style: none;
+
+}
