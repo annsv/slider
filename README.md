@@ -1,8 +1,1 @@
 "# slider" 
-"# slider" 
-"# jsslider" 
-"# slider" 
-"# slider" 
-"# jsslider" 
-"# plainjsslider" 
-"# plainjsslider" 
