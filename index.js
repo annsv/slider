@@ -24,7 +24,6 @@ class Slider{
       ul.appendChild(bullet.elem);
       
       bullet.elem.addEventListener('click', () => {
-        //console.log(bullet);
         let index;
         if(bullet.elem.getAttribute('data-index') !== null){
           index = parseInt(bullet.elem.getAttribute('data-index'), 10) + 1;    
@@ -32,17 +31,15 @@ class Slider{
         } 
         let activeSlide = this.el.querySelector('.slider__item:nth-child(' + index + ')');
         this.slideContainer.style.left = '-' + activeSlide.offsetLeft + 'px';
-
       })
     });
     
-    document.querySelector('.nav-holder').appendChild(ul);
+    document.querySelector('.slider__navigation').appendChild(ul);
     
   }
   
   getBulletsTpl (items) {
     const ul = document.createElement('ul');
-    ul.classList.add('slider__navigation');
     
     const lis = Array.from(items).map((slide, i) => {
       const li = document.createElement('li');
@@ -63,39 +60,37 @@ class Slider{
   rightArrow(){
     this.slide(1,this.right,1);
   } 
-  
-        slide (index,link,direction) {
-          link.addEventListener('click', () => {
-            //console.log(link);
-            let items = Array.from(this.navItems);
-            items.length;
+      
+      slide (index,link,direction) {
+        
+        link.addEventListener('click', () => {
+          let items = Array.from(this.navItems);
+          items.length;
 
-            if(direction === 1){  
-              if (index < items.length){
-              index++;
-              } else {
-                index = 0; 
-                index++;
-              }
-              console.log("arrow right",index);
+          if(direction === 1){  
+            if (index < items.length){
+            index++;
             } else {
-              if (index <= 1){
-                index =  items.length; 
-                 // index--;
-                } else {
-                  index--;
-                }
-
-              console.log("arrow left",index);
+              index = 0; 
+              index++;
             }
-            let activeSlide = this.el.querySelector('.slider__item:nth-child(' + index + ')');
-            
-            this.slideContainer.style.left = '-' + activeSlide.offsetLeft + 'px';
-            
-          })
-        }
+            console.log("arrow right",index);
+          } else {
+            if (index <= 1){
+              index =  items.length; 
+              } else {
+                index--;
+              }
+
+            console.log("arrow left",index);
+          }
+          let activeSlide = this.el.querySelector('.slider__item:nth-child(' + index + ')');
+          
+          this.slideContainer.style.left = '-' + activeSlide.offsetLeft + 'px';
+          
+        })
+      }
     
   };
 
-  //API
   var slider = new Slider('.slider');
