@@ -61,7 +61,11 @@
   line-height: 2;
   margin-right: 0.5em;
 }
-
+.slider__arrows{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .slider__arrows-left{
     width: 50px;
     list-style: none;
