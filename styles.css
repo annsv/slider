@@ -11,11 +11,14 @@
   margin: 0 auto;
   overflow: hidden;
 }
+
+
 .slider__container {
-  width: 9999px;
+  width: 3215%;
   position: relative;
-  transition: left 0.4s;
-  margin-bottom: 15px;
+  margin-bottom:10px;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
 }
 .slider__image{
     width: 100%;
@@ -65,6 +68,10 @@
   line-height: 2;
   margin-right: 0.5em;
 }
+.slider__navigation-item:hover,
+.slider__navigation-item:focus {
+  background: #ddd;
+}
 .slider__arrows{
   position: relative;
   z-index: 1;
@@ -96,4 +103,5 @@
 .slider__arrows-right:focus,
 .slider__arrows-right:active{
   cursor: context-menu;
+  background: #eee;
 }

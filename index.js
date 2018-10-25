@@ -1,7 +1,10 @@
 class Slider{
 
-  constructor(el){
+  constructor(el,itemsPerLine, itemsToMove){
     this.el = document.querySelector(el);
+    this.itemsPerLine = itemsPerLine;
+    this.itemsToMove = itemsToMove;    
+     
     this.init();
   }
   
@@ -30,7 +33,8 @@ class Slider{
           console.log("bullets", index);
         } 
         let activeSlide = this.el.querySelector('.slider__item:nth-child(' + index + ')');
-        this.slideContainer.style.left = '-' + activeSlide.offsetLeft + 'px';
+        this.slideContainer.style.transform = 'translate(-' + activeSlide.offsetLeft + 'px)';
+        console.log(this.slideContainer.style.transform)
       })
     });
     
@@ -65,7 +69,6 @@ class Slider{
         
         link.addEventListener('click', () => {
           let items = Array.from(this.navItems);
-          items.length;
 
           if(direction === 1){  
             if (index < items.length){
@@ -74,23 +77,21 @@ class Slider{
               index = 0; 
               index++;
             }
-            console.log("arrow right",index);
           } else {
             if (index <= 1){
               index =  items.length; 
               } else {
                 index--;
               }
-
-            console.log("arrow left",index);
           }
           let activeSlide = this.el.querySelector('.slider__item:nth-child(' + index + ')');
-          
-          this.slideContainer.style.left = '-' + activeSlide.offsetLeft + 'px';
+          let activeSlideWidth = activeSlide.offsetWidth/this.itemsPerLine;
+          //console.log(activeSlideWidth);
+          this.slideContainer.style.transform = 'translate(-' + (activeSlide.offsetLeft)*this.itemsToMove + 'px)';
           
         })
       }
     
   };
 
-  var slider = new Slider('.slider');
+  var slider = new Slider('.slider',2,2);
