@@ -86,7 +86,6 @@ class Slider{
           }
           let activeSlide = this.el.querySelector('.slider__item:nth-child(' + index + ')');
           let activeSlideWidth = activeSlide.offsetWidth/this.itemsPerLine;
-          //console.log(activeSlideWidth);
           this.slideContainer.style.transform = 'translate(-' + (activeSlide.offsetLeft)*this.itemsToMove + 'px)';
           
         })
